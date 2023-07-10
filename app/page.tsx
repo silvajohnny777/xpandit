@@ -10,6 +10,7 @@ import axios from 'axios'
 import Movies from './Movies';
 import { RootState } from './GlobalRedux/store';
 import Modal from './components/Modal';
+import { Roboto } from '@next/font/google'
 
 export interface MovieTypes {
   id: number
@@ -35,6 +36,11 @@ export interface MoviesRequestTypes {
   status: number;
   page: number,
 }
+
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['400', '700']
+})
 
 const Home:React.FC = () => {
 
@@ -87,7 +93,7 @@ const Home:React.FC = () => {
   }, [dispatch, movies, topRevenue]);
 
   return (
-      <main>
+      <main className={roboto.className}>
         <Navbar />
         <Movies />
         {
