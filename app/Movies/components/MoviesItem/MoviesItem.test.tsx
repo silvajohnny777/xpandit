@@ -1,8 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import MoviesItem from './MoviesItem';
+import MoviesItem from './index';
 import { Provider } from 'react-redux';
 import { store } from '../../../GlobalRedux/store' 
+import '@testing-library/jest-dom'
 
 describe('MoviesItem', () => {
   const mockMovie = {

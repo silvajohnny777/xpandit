@@ -10,7 +10,7 @@ import axios from 'axios'
 import Movies from './Movies';
 import { RootState } from './GlobalRedux/store';
 import Modal from './components/Modal';
-import { Roboto } from '@next/font/google'
+import { Roboto } from 'next/font/google'
 
 export interface MovieTypes {
   id: number

@@ -34,13 +34,13 @@ const MoviesItem:React.FC<MoviesItemTypes> = ({ position, movie }) => {
 
     return (
 
-        <tr className="text-[#536B7A] text-[16px] hover:bg-[#fafafa]">
-            <td className="py-[16px] px-[10px]">{position}</td>
-            <td className="truncate max-w-[400px]">{title}</td>
-            <td>{release_date?.substring(0, release_date?.indexOf("-"))}</td>
-            <td>{vote_average}</td>
-            <td><Image onClick={() => getMovieDetail(id)} className="cursor-pointer" src={Eye} alt='eye-icon' /></td>
-        </tr>
+      <tr className="text-[#536B7A] text-[16px] hover:bg-[#fafafa]">
+          <td className="py-[16px] px-[10px]">{position}</td>
+          <td className="truncate max-w-[400px]">{title}</td>
+          <td>{release_date?.substring(0, release_date?.indexOf("-"))}</td>
+          <td>{vote_average}</td>
+          <td><Image onClick={() => getMovieDetail(id)} className="cursor-pointer" src={Eye} alt='eye-icon' /></td>
+      </tr>
 
     )
 

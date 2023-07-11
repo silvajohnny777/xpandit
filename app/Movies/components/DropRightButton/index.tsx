@@ -3,8 +3,9 @@ import { addTopRevenues, addTopRevenuesByYear } from '../../../GlobalRedux/Featu
 import { RootState } from '../../../GlobalRedux/store'
 import { MoviesRequestTypes } from '../../../../app/page'
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useOutsideClick } from '../../../hooks/handleClickOutide';
 
 interface ButtonTypes {
     title: string,
@@ -18,6 +19,10 @@ const DropRightButton:React.FC<ButtonTypes> = ({ title, APIAction }) => {
     const [ loading, setLoading ] = useState<boolean>(false)
     const [ selectedYear, setSelectedYear ] = useState<number | null>()
     const { topRevenueByYear, topRevenue } = useSelector((state: RootState) => state.movies)
+
+    const dropdown = useOutsideClick(() => {
+        setShowOptions(false)
+    });
 
     const years:Array<number> = []
     for(let i = 0; i < 100; i++) {
@@ -72,7 +77,7 @@ const DropRightButton:React.FC<ButtonTypes> = ({ title, APIAction }) => {
             >{loading ? 'Loading...' : title} {selectedYear ? selectedYear : ''}</button>
             {
                 showOptions &&
-                    <div className="absolute w-[178px] h-[478px] bg-[#FFFFFF] shadow-[0_35px_60px_-15px_#01243366] top-0 left-[175px] overflow-auto flex flex-col items-center p-[16px]">
+                    <div ref={dropdown} className="absolute w-[178px] h-[478px] bg-[#FFFFFF] shadow-[0_35px_60px_-15px_#01243366] top-0 left-[175px] overflow-auto flex flex-col items-center p-[16px]">
                         <h3 className="text-[#78849EB9] text-[12px] mb-[18px]">Select a year</h3>
                         {
                             years.map((year: number) => {

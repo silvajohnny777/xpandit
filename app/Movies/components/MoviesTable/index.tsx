@@ -2,7 +2,7 @@ import { RootState } from '../../../GlobalRedux/store'
 import { MovieTypes } from '../../../page'
 import React from 'react'
 import { useSelector } from 'react-redux'
-import MoviesItem from '../MoviesItem/MoviesItem'
+import MoviesItem from '../MoviesItem/index'
 
 const MoviesTable:React.FC = () => {
 
